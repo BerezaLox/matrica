@@ -1,0 +1,42 @@
+matrica = []
+matrica1 = []
+rows = ''
+rowspan = 0
+colspan = 0
+while rows!= 'end':
+  rows=input()
+  if rows == 'end':
+    break
+  rowspan = len(list(rows.split()))
+  matrica.append(list(rows.split()))
+  matrica1.append(list(rows.split()))
+colspan = len(matrica)
+
+print(colspan)
+print(rowspan)
+print(matrica1)
+if rowspan>1 and colspan==2:
+  #Первая строка
+  matrica[0][0] = (int(matrica1[0][1])+int(matrica1[0][-1])+int(matrica1[1][0])+int(matrica1[1][0]))
+  matrica[0][-1] = (int(matrica1[0][1])+int(matrica1[1][-1])+int(matrica1[1][-1])+int(matrica1[0][0]))
+  matrica[0][1] = (int(matrica1[0][0])+int(matrica1[0][2])+int(matrica1[1][1])+int(matrica1[1][1]))
+  #Вторая строка
+  matrica[-1][0] = (int(matrica1[-1][1])+int(matrica1[-1][-1])+int(matrica1[0][0])+int(matrica1[0][0]))
+  matrica[-1][-1] = (int(matrica1[-1][1])+int(matrica1[-1][0])+int(matrica1[0][-1])+int(matrica1[0][-1]))
+  matrica[-1][1] = (int(matrica1[-1][0])+int(matrica1[-1][-1])+int(matrica1[0][1])+int(matrica1[0][1]))
+if rowspan and colspan == 1:
+  matrica[0][0] = int(int(matrica[0][0])*4)
+if rowspan==3 and colspan==3:
+  #Первая строка
+  matrica[0][0] = (int(matrica1[0][1])+int(matrica1[0][-1])+int(matrica1[1][0])+int(matrica1[-1][0]))
+  matrica[0][1] = (int(matrica1[0][0])+int(matrica1[0][2])+int(matrica1[1][1])+int(matrica1[-1][1]))
+  matrica[0][-1] = (int(matrica1[0][1])+int(matrica1[1][-1])+int(matrica1[0][0])+int(matrica1[2][-1]))
+  #Вторая строка
+  matrica[1][0] = (int(matrica1[1][1])+int(matrica1[1][-1])+int(matrica1[0][0])+int(matrica1[-1][0]))
+  matrica[1][1] = (int(matrica1[0][1])+int(matrica1[1][0])+int(matrica1[1][-1])+int(matrica1[-1][1]))
+  matrica[1][-1] = (int(matrica1[0][-1])+int(matrica1[1][1])+int(matrica1[1][0])+int(matrica1[2][-1]))
+  #Третья строка
+  matrica[2][0] = (int(matrica1[1][0])+int(matrica1[2][1])+int(matrica1[0][0])+int(matrica1[-1][-1]))
+  matrica[2][1] = (int(matrica1[2][0])+int(matrica1[2][-1])+int(matrica1[1][1])+int(matrica1[0][1]))
+  matrica[2][-1] = (int(matrica1[1][-1])+int(matrica1[2][1])+int(matrica1[2][0])+int(matrica1[0][-1]))
+print(matrica)
